@@ -8,11 +8,21 @@ namespace myusers
     {
         public static void Main()
         {
+            Read();
             Create();
             Delete();
             Update();
         }
     
+        //Show Function
+        public static void Read()
+        {
+            List<Dictionary<string, object>> myresults = DbConnector.ExecuteQuery("SELECT * FROM users");
+            foreach(Dictionary<string,object> item in myresults)
+            {
+                Console.WriteLine(item["FirstName"]);
+            }
+        }
 
         // Create Method
         public static void Create()
